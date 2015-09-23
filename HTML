@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<style>
+body {background-color:lightgray}
+h1   {color:white}
+p    {color:white}
+h1 {
+    background-color: black;
+}
+
+p {
+    background-color: black;
+</style>
+	<script type="text/javascript" src="zepto.min.js"></script>
+	  <script type="text/javascript">
+function myFunction() {
+    document.getElementById("demo").innerHTML = "sebastian.jimeneztr@upb.edu.co. IoT. UPB 2015; moritz.albrecht@upb.edu.co; IoT UPB 2015";
+}
+function myFunctionBack() {
+    document.getElementById("demo").innerHTML = "Realizado por Sebasti�n Jim�nez Trujillo y Moritz Albrecht.";
+}
+	   	function refresh() {
+		  	$('#content').load('/arduino/temperature');
+	  	}
+</script>
+
+	</head>
+<center><img src="https://www.arduino.cc/en/uploads/ArduinoAtHeart/ArduinoAtHeart_logo.png" alt="arduino" /></center>
+<center><h1>Arduino: Sensor de Temperatura</h1></center>
+<body onload="setInterval(refresh, 200);">
+		<center><span id="content">0</span></center>
+<center><p id="demo">Realizado por Sebasti�n Jim�nez Trujillo y Moritz Albrecht.</p></center>
+         	
+<center><button type="button" onclick="myFunction()">M�s Informaci�n</button></center>
+    <center><button type="button" onclick="myFunctionBack()">Menos informaci�n</button></center>
+    	</body>
+</html>
