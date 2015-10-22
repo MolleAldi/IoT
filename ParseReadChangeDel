@@ -1,0 +1,32 @@
+#include <Bridge.h>
+#include <Parse.h>
+
+void setup() {
+  Bridge.begin();
+  Serial.begin(115200);
+  while (!Serial);
+
+  Serial.println("Parse Starte Project");
+  Parse.begin("MojwisKy2NluTtNUFH5TQNzeGhzbO7YgJbuX0Ox4", "WsDWltFKu29doxd80ccM6J0O0091RezPHA79ju7K");
+
+  ParseObjectGet get;
+  get.setClassName("Temperature");
+  get.setObjectId("RXNT9uRPCR");
+  ParseResponse response = get.send();
+  double temp = response.getDouble("temperature");
+  Serial.println(temp);
+  response.close(); // Free the resource
+
+  ParseObjectUpdate update;
+  update.setClassName("Temperature");
+  update.setObjectId("RXNT9uRPCR");
+  update.add("temperature", 100);
+  update.send();
+
+  ParseObjectDelete del;
+  del.setClassName("Temperature");
+  del.setObjectId("RXNT9uRPCR");
+  del.send();
+}
+
+void loop() {}
